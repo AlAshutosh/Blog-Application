@@ -17,7 +17,7 @@ MySQL Database<br>
 Maven or Gradle<br>
 <h3>1. Clone the Repository</h3>
 bash<br>
-git clone https://github.com/AlAshutosh/blog_assignment.git<br>
+git clone https://github.com/AlAshutosh/Blog-Application.git<br>
 <h3>2. Configure MySQL Database</h3>
 Create a new database in MySQL named blogd.<br>
 Create the necessary tables for User and Blog.<br>
