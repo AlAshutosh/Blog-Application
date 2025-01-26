@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Frequency Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      max-width: 600px;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      text-align: left;
+      padding: 10px;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #e9f5e9;
+    }
+    td {
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+      color: #4CAF50;
+      font-size: 16px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<h1>Word Frequency Report</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Rank</th>
+    <th>Word</th>
+    <th>Frequency</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="entry, iterStat : ${report}">
+    <td th:text="${iterStat.index + 1}"></td> <!-- Display rank -->
+    <td th:text="${entry.key}"></td>
+    <td th:text="${entry.value}"></td>
+  </tr>
+  </tbody>
+</table>
+<a th:href="@{/blogs/dashboard}">Back to Dashboard</a>
+</body>
+</html>

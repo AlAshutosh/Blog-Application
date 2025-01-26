@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 22px;
+      color: #1abc9c;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+      max-width: 800px;
+    }
+    li {
+      background: #ffffff;
+      margin-bottom: 15px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    li span {
+      font-size: 18px;
+      font-weight: 500;
+      color: #34495e;
+    }
+    .blog-body {
+      font-size: 16px;
+      color: #7f8c8d;
+      margin-top: 8px;
+    }
+    .actions {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+    }
+    .actions a {
+      font-size: 14px;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .actions a:hover {
+      color: #c0392b;
+      text-decoration: underline;
+    }
+    .links {
+      margin-top: 30px;
+    }
+    .links a {
+      display: inline-block;
+      margin: 10px 10px 0;
+      padding: 12px 20px;
+      background-color: #1abc9c;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .links a:hover {
+      background-color: #16a085;
+      transform: translateY(-3px);
+    }
+    @media (max-width: 768px) {
+      ul {
+        padding: 0 15px;
+      }
+      li {
+        padding: 15px;
+      }
+      .links a {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+<h1>Welcome to Your Dashboard</h1>
+<h2>Your Blogs</h2>
+<ul>
+  <li th:each="blog : ${blogs}">
+    <span th:text="${blog.title}">Sample Blog Title</span>
+    <div class="blog-body" th:text="${blog.body}">Sample blog content goes here...</div>
+    <div class="actions">
+      <a th:href="@{/blogs/{id}/edit(id=${blog.id})}">[Update]</a>
+      <a th:href="@{/blogs/{id}/delete(id=${blog.id})}" style="color: #e74c3c;">[Delete]</a>
+    </div>
+  </li>
+</ul>
+
+<div class="links">
+  <a th:href="@{/blogs/create}">Create New Blog</a>
+  <a th:href="@{/report}">Generate Report</a>
+  <a th:href="@{/auth/login}">Logout</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+          font-family: 'Roboto', sans-serif;
+          background-color: #f7f9fc;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px;
+        }
+        h1 {
+          font-size: 24px;
+          color: #2c3e50;
+          margin-bottom: 20px;
+        }
+        form {
+          background: #ffffff;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 600px;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+        label {
+          font-size: 16px;
+          font-weight: 500;
+          color: #34495e;
+        }
+        .title {
+          font-size: 18px;
+          font-weight: 500;
+          color: #2c3e50;
+          background-color: #f7f9fc;
+          padding: 10px 15px;
+          border-radius: 8px;
+          border: 1px solid #dfe6e9;
+        }
+        textarea {
+          font-size: 16px;
+          font-family: 'Roboto', sans-serif;
+          padding: 10px;
+          border: 1px solid #dfe6e9;
+          border-radius: 8px;
+          resize: vertical;
+          height: 150px;
+        }
+        button {
+          padding: 12px 20px;
+          font-size: 16px;
+          font-weight: 500;
+          color: white;
+          background-color: #1abc9c;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        button:hover {
+          background-color: #16a085;
+        }
+        a {
+          text-decoration: none;
+          color: #34495e;
+          font-size: 14px;
+          text-align: center;
+          margin-top: 10px;
+          display: inline-block;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Edit Blog</h1>
+<form th:action="@{/blogs/{id}/update(id=${blog.id})}" method="post">
+    <label for="title">Title</label>
+    <div class="title" th:text="${blog.title}">Sample Blog Title</div>
+
+    <label for="body">Edit Body</label>
+    <textarea id="body" name="body" required th:text="${blog.body}">Sample blog content goes here...</textarea>
+
+    <button type="submit">Save</button>
+</form>
+
+<a th:href="@{/blogs/dashboard}">Cancel</a>
+</body>
+</html>
