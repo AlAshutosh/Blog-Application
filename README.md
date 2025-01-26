@@ -24,7 +24,7 @@ Create the necessary tables for User and Blog.<br>
 You can refer to the application.properties file for connection details.<br>
 <h3>3.Setup Application Properties</h3>
 In the src/main/resources/application.properties file, configure your database connection:<br>
-spring.datasource.url=jdbc:mysql://localhost:3306/blog_app <br>
+spring.datasource.url=jdbc:mysql://localhost:3306/databasename <br>
 spring.datasource.username=root <br>
 spring.datasource.password=yourpassword <br>
 spring.jpa.hibernate.ddl-auto=update <br>
