@@ -72,4 +72,4 @@ Description: Deletes a blog by blogId.<br>
 Method: GET <br>
 Description: Generates a report showing the top 5 most frequently used words in blogs for a specific user.<br>
 <h2>UI </h2>
-The front-end for interacting with the API can be built using HTML, Thymeleaf, and JavaScript.<br>
+The front-end for interacting with the API can be built using HTML, Thymeleaf.<br>
